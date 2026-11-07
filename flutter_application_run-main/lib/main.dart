@@ -1,42 +1,44 @@
+// ignore_for_file: unused_import
+
 import 'package:flutter/material.dart';
 import 'package:flutter_application_run/views/splashScreen_ui.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
-//-----------------------------
-void main() {
-//----------โค้ดตืิดต่อกับ supabase โปรเจ็กต์ที่เราจะทำงานด้วย--------------------
+void main() async {
+  //----- ติดต่อกับ supabase project ที่เราจะทำงานด้วย -----
   WidgetsFlutterBinding.ensureInitialized();
   await Supabase.initialize(
-    url: 'https://zqjzjzqzqzjzjzqzqzjz.supabase.co',
-    sup
-
+    url: 'https://ofmlntyajsiyzqscdzvt.supabase.co',
+    publishableKey: 'sb_publishable_1BEAEcuAHqTM082qVb-LOQ_Mo5oPOB2',
   );
-  //-----------------------------------------------
+
+  //----------------------------------
+
   runApp(
-    FlutterRunTrackerApp(),
+    const FlutterTrackerApp(),
   );
 }
 
-//-----------------------------
-class FlutterRunTrackerApp extends StatefulWidget {
-  const FlutterRunTrackerApp({super.key});
+class FlutterTrackerApp extends StatefulWidget {
+  const FlutterTrackerApp({super.key});
 
   @override
-  State<FlutterRunTrackerApp> createState() => _FlutterRunTrackerAppState();
+  State<FlutterTrackerApp> createState() => _FlutterTrackerAppState();
 }
 
-class _FlutterRunTrackerAppState extends State<FlutterRunTrackerApp> {
+class _FlutterTrackerAppState extends State<FlutterTrackerApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: SplashScreenUI(),
       theme: ThemeData(
-        textTheme: TextTheme.of(context).apply(
-          fontFamily: GoogleFonts.kanit().fontFamily,
-          fontFamilyFallback: GoogleFonts.kanit().fontFamilyFallback,
-        ),
+        // useMaterial3: true,
+        textTheme: ThemeData.light().textTheme.apply(
+              fontFamily: GoogleFonts.kanit().fontFamily,
+              fontFamilyFallback: GoogleFonts.kanit().fontFamilyFallback,
+            ),
       ),
     );
   }

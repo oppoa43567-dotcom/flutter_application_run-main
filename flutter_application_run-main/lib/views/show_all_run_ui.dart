@@ -1,8 +1,7 @@
-// ignore_for_file: sort_child_properties_last
+// ignore_for_file: unused_import, sort_child_properties_last
 
 import 'package:flutter/material.dart';
 import 'package:flutter_application_run/views/add_run_ui.dart';
-import 'package:flutter_application_run/views/update_delete_ui.dart';
 
 class ShowAllRunUI extends StatefulWidget {
   const ShowAllRunUI({super.key});
@@ -15,25 +14,26 @@ class _ShowAllRunUIState extends State<ShowAllRunUI> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // ส่วนของ appBar
+      //appBAr
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 5, 1, 80),
+        backgroundColor: const Color.fromARGB(255, 16, 11, 87),
         title: Text(
-          'Run Tracker',
+          'RUN TRACKER',
           style: TextStyle(
             color: Colors.white,
+            // fontWeight: FontWeight.bold,
           ),
         ),
         centerTitle: true,
       ),
-      // ส่วนของ floatingActionButton
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          // เปิดไป AddRunUI() แบบย้อนกลับได้
+          //เปิดหน้า add run ui แบบกลับได้
           Navigator.push(
             context,
             MaterialPageRoute(
               builder: (context) => AddRunUI(),
+              //builder: (context) => const UpdateDeleteUI(),
             ),
           );
         },
@@ -41,26 +41,30 @@ class _ShowAllRunUIState extends State<ShowAllRunUI> {
           Icons.add,
           color: Colors.white,
         ),
-        backgroundColor: const Color.fromARGB(255, 5, 1, 80),
+        backgroundColor: const Color.fromARGB(255, 16, 11, 87),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      // ส่วนของ body
+      //body
       body: Center(
         child: Column(
           children: [
             SizedBox(
-              height: 50,
+              height: MediaQuery.of(context).size.height * 0.05,
             ),
             Image.asset(
-              'assets/images/logo.png',
-              width: MediaQuery.of(context).size.width * 0.355,
-              height: MediaQuery.of(context).size.width * 0.355,
+              'assets/images/speed.png',
+              height: MediaQuery.of(context).size.height * 0.25,
+              width: MediaQuery.of(context).size.height * 0.25,
               fit: BoxFit.cover,
             ),
+            // SizedBox(
+            //   height: MediaQuery.of(context).size.height * 0.025,
+            // ),
             Text(
-              'วิงกันเถอะ',
+              'วิ่งกันเถอะ',
               style: TextStyle(
-                fontSize: MediaQuery.of(context).size.height * 0.0325,
+                color: const Color.fromARGB(255, 0, 0, 0),
+                fontSize: MediaQuery.of(context).size.height * 0.035,
                 fontWeight: FontWeight.bold,
               ),
             ),
