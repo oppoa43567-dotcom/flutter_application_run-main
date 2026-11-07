@@ -1,38 +1,37 @@
 class Run {
-  //ตัวแปรล้อกับคอลัมน์ในตาราง
+  //ตัวแปรล้อกับ column ในตาราง
   String? id;
-  String? created_at;
   String? runWhere;
   String? runPerson;
   int? runDistance;
   String? runImageUrl;
+  String? created_at;
 
-  //Constructor
+  //constructor
   Run({
     this.id,
-    this.created_at,
     this.runWhere,
     this.runPerson,
     this.runDistance,
     this.runImageUrl,
+    this.created_at,
   });
 
-  //การแปลงข้อมูลฝั่ง mobile เป็น JSON เพื่อส่งไปยัง  Supaabase : toJson
+  //แปลงข้อมูล จาก mobile เป็น json เพื่อส่งไป supabase
   Map<String, dynamic> toJson() => {
-        "id": id,
-        "created_at": created_at,
-        "runWhere": runWhere,
-        "runPerson": runPerson,
-        "runDistance": runDistance,
-        "runImageUrl": runImageUrl,
+        "runWhere": runWhere as String,
+        "runPerson": runPerson as String,
+        "runDistance": runDistance as int,
+        "runImageUrl": runImageUrl as String,
       };
-  //การแปลงข้อมูลฝั่ง Supabase เป็น mobile : fromJson
+
+  //แปลงข้อมูล จาก json  ใน supabase เป็น object ใน mobile
   factory Run.fromJson(Map<String, dynamic> json) => Run(
-        id: json['id'],
-        created_at: json['created_at'],
-        runWhere: json['runWhere'],
-        runPerson: json['runPerson'],
-        runDistance: json['runDistance'],
-        runImageUrl: json['runImageUrl'],
+        id: json["id"] as String,
+        runWhere: json["runWhere"] as String,
+        runPerson: json["runPerson"] as String,
+        runDistance: json["runDistance"] as int,
+        runImageUrl: json["runImageUrl"] as String,
+        created_at: json["created_at"] as String,
       );
 }

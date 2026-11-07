@@ -52,7 +52,7 @@ class _ShowAllRunUIState extends State<ShowAllRunUI> {
               height: MediaQuery.of(context).size.height * 0.05,
             ),
             Image.asset(
-              'assets/images/speed.png',
+              'assets/images/logo.png',
               height: MediaQuery.of(context).size.height * 0.25,
               width: MediaQuery.of(context).size.height * 0.25,
               fit: BoxFit.cover,
